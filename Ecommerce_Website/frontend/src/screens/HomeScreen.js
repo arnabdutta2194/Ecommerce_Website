@@ -1,9 +1,19 @@
-import React from 'react'
-import products from '../products'
+import {React,useEffect, useState } from 'react'
 import {Row, Col} from 'react-bootstrap'
-import Product from '../components/Products'
+import axios from 'axios';
+import Product from "../components/Products"
 
-function homescreen() {
+function HomeScreen() {
+  const [products,setProducts] = useState([])
+  useEffect(() => {
+    async function fetchProducts(){
+      console.log('Use Effect Triggered')
+      const {data} = await axios.get('api/products/')
+      setProducts(data)
+    }
+
+    fetchProducts()
+  },[])
   return (
     <div>
         <h1>Latest products</h1>
@@ -18,4 +28,4 @@ function homescreen() {
   )
 }
 
-export default homescreen
+export default HomeScreen
