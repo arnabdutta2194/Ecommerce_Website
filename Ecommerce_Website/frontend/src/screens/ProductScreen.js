@@ -9,8 +9,8 @@ import Message from "../components/Message";
 
 function ProductScreen() {
 
-    const [qty,setQty] = useState(1);
-    const navigate = useNavigate()
+  const [qty,setQty] = useState(1);
+  const navigate = useNavigate()
   //Product id is passed as a parameter 
   const { id } = useParams();
   const dispatch = useDispatch();

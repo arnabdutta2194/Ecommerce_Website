@@ -14,7 +14,7 @@ export const listProducts = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: PRODUCT_LIST_FAIL,
-            payload: error.response && error.response.data.message ? error.response.data.message : error.message, // Dispatch error if something fails
+            payload: error.response && error.response.data.detail ? error.response.data.detail : error.message, // Dispatch error if something fails
         });
     }
 };
@@ -22,7 +22,7 @@ export const listProducts = () => async (dispatch) => {
 export const listProductDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST }); // Dispatch request action to set loading state
-        const { data } = await axios.get(`/api/product/${id}`); // Make an API call to fetch products
+        const { data } = await axios.get(`/api/products/${id}`); // Make an API call to fetch products
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
             payload: data, // Dispatch success action with the fetched data
@@ -30,7 +30,7 @@ export const listProductDetails = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: PRODUCT_DETAILS_FAIL,
-            payload: error.response && error.response.data.message ? error.response.data.message : error.message, // Dispatch error if something fails
+            payload: error.response && error.response.data.detail ? error.response.data.detail : error.message, // Dispatch error if something fails
         });
     }
 };

@@ -4,7 +4,7 @@ import { CART_ADD_ITEM,CART_REMOVE_ITEM } from '../constants/cartConstants';
 export const addToCart = (id,qty) => async (dispatch, getState) => {
     try {
         // Dispatch request action to set loading state
-        const { data } = await axios.get(`/api/product/${id}/`); // Make an API call to fetch products
+        const { data } = await axios.get(`/api/products/${id}/`); // Make an API call to fetch products
         console.log(data)
         dispatch({ type: CART_ADD_ITEM ,
             payload : {
